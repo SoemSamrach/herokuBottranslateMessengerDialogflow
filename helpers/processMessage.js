@@ -1,9 +1,13 @@
-const API_AI_TOKEN = '6dc628ac63d74e70a32beab1a1592b4f'
+const API_AI_TOKEN = '6dc628ac63d74e70a32beab1a1592b4f'//this is the api from dialogflow
 const apiAiClient = require('apiai')(API_AI_TOKEN)
 const FACEBOOK_ACCESS_TOKEN = 'EAAF3LkdXbvIBAOTpLOZCuzMAPEpNZCBzO8BLk6bbPpmXhB9LHLiPvLPG6yMlkI6F43ZBb0B0ZAWokR4psgV0R3RyLhkyduojZAEHBhrBY0OH49viqDKVz1RgWjfo1IVmFoZAfBzMwrCRfhk35EYRsn3EqjebWLv0fwT3WiZA7Jj5AZDZD'
-const request = require('request')
-const translate = require('google-translate-api')
-const sendTextMessage = (senderId, text) => {
+// this is the facebook access token which is generated from Facebook page
+const request = require('request')// This is the request client library which request to Facebook
+
+const translate = require('google-translate-api')// This is the google translate api (free version)
+
+
+const sendTextMessage = (senderId, text) => { // This is send back to Facebook
 
 		 request({
 				 url: 'https://graph.facebook.com/v2.6/me/messages',
@@ -22,9 +26,9 @@ module.exports = (event) => {
 			const senderId = event.sender.id
 			const message = event.message.text
 			console.log(`message here is the original messages: ${message}`)
- 
+
 			translate(message, {to: 'en'}).then(res => {
-			    
+
 			    const testMessage = res.from.text.value?res.from.text.value:res.text
 
 			    const detectedLangauge = res.from.language.iso
@@ -52,7 +56,7 @@ module.exports = (event) => {
 				}).catch(err => {
 				    console.error(err);
 				});
-				
+
 			 })
 
 			apiaiSession.on('error', error =>console.log(error))
