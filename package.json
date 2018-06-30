@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apiai": "^4.0.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "request": "^2.87.0"
+    "google-translate-api": "^2.3.0",
+    "request": "^2.87.0",
+    "save": "^2.3.2"
   }
 }
