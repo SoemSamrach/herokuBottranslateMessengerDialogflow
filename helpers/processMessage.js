@@ -1,6 +1,6 @@
 const API_AI_TOKEN = '6dc628ac63d74e70a32beab1a1592b4f'//this is the api from dialogflow
 const apiAiClient = require('apiai')(API_AI_TOKEN)
-const FACEBOOK_ACCESS_TOKEN = 'EAAF3LkdXbvIBAOTpLOZCuzMAPEpNZCBzO8BLk6bbPpmXhB9LHLiPvLPG6yMlkI6F43ZBb0B0ZAWokR4psgV0R3RyLhkyduojZAEHBhrBY0OH49viqDKVz1RgWjfo1IVmFoZAfBzMwrCRfhk35EYRsn3EqjebWLv0fwT3WiZA7Jj5AZDZD'
+const FACEBOOK_ACCESS_TOKEN = 'EAAF3LkdXbvIBAMwWQt4ZBkx8kqZAfj7PrZAR5t9J3is15foINXF91uC9JWd7yE1ZAR9yAIZAR5IezVaMA8mBdyDE3ZADLYEFbAXLhC3aYZAzZBkPWyTdLcszqHi0Vk3pOfZCaiY3g2afyWZAVHc6VpzLEZABgsx39kSoRrHraLq9csvKQZDZD'
 // this is the facebook access token which is generated from Facebook page
 const request = require('request')// This is the request client library which request to Facebook
 

@@ -6,4 +6,3 @@
 1. Create a Facebook page
 2. Create a dialogflow account
 3. Create a free hosting account or use ngrok
-
