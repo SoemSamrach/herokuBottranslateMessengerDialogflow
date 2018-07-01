@@ -31,5 +31,5 @@ app.get('/', function (req, res) {
 const verificationController = require('./controllers/verification');
 
 const messageWebhookController = require('./controllers/messageWebhook');
-app.get('/', verificationController);
+app.get('/Webhook/', verificationController);
 app.post('/', messageWebhookController);
