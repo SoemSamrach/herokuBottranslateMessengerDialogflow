@@ -38,20 +38,29 @@ app.get('/', function (req, res) {
 const verificationController = require('./controllers/verification');
 
 const messageWebhookController = require('./controllers/messageWebhook');
-app.get('/webhook/', verificationController);
-app.post('/', messageWebhookController);
+//app.get('/webhook/', verificationController);
 
-// // for Facebook verification
-// app.get('/webhook/', function (req, res) {
-//   if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
-//     res.send(req.query['hub.challenge'])
-//   }
-//   res.send('Error, wrong token')
-// })
 
+// for Facebook verification
+app.get('/webhook/', function (req, res) {
+
+	const hubChallenge = req.query['hub.challenge']
+
+    const hubMode = req.query['hub.mode']
+
+    const verifyTokenMatches = (req.query['hub.verify_token'] === 'samrachgoogledialogflow')
+
+    if (hubMode && verifyTokenMatches) {
+      		res.status(200).send(hubChallenge)
+    	} else {
+      res.status(403).end()
+    }
+})
 // Spin up the server
 app.listen(app.get('port'), function() {
   console.log('running on port', app.get('port'))
 })
 
+
+app.post('/', messageWebhookController);
 
